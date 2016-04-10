@@ -23,7 +23,7 @@ public class Score : MonoBehaviour {
         GetComponent<GUIText>().text = "Score: " + score;
         currScore = score;
         PlayerPrefs.SetInt(newScore, currScore);
-        Debug.Log("Current Score: " + currScore);
+        //Debug.Log("Current Score: " + currScore);
 
 	}
 }
