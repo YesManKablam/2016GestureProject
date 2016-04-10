@@ -1,5 +1,5 @@
 # 2016GestureProject
-*** John Conor Kenny and Dan Maloney ***
+***John Conor Kenny and Dan Maloney***
 
 ## Purpose of the Application
 The purpose of this application is to exploret the use of alternative control methods in video games.
