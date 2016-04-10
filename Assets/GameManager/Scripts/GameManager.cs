@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public Transform spawnPoint;
     public float spawnDelay = 2f;
     //public Transform spawnParticle;
-    public static bool gameOver = true;
+    public static bool gameOver = false;
 
     public GUIText GameOverText;
     public GUIText FinalScoreText;
@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        gameOver = true;
         if (gameOver == true)
         {
             GameOverText.text = "GAME OVER";            //Show GUI GameOver

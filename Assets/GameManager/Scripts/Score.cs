@@ -4,10 +4,10 @@ using System.Collections;
 public class Score : MonoBehaviour {
 
     public int score = 0;
-
     public int currScore = 0;
 
     private string newScore = "Score";
+    private string newTime = "Time";
 
     //private PlayerHealth player;
     //private int prevScore = 0;
@@ -21,6 +21,7 @@ public class Score : MonoBehaviour {
 	void Update ()
     {
         GetComponent<GUIText>().text = "Score: " + score;
+ 
         currScore = score;
         PlayerPrefs.SetInt(newScore, currScore);
         //Debug.Log("Current Score: " + currScore);
