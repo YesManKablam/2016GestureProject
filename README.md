@@ -2,7 +2,7 @@
 ***John Conor Kenny and Dan Maloney***
 
 ## Purpose of the Application
-The purpose of this application is to exploret the use of alternative control methods in video games.
+The purpose of this application is to exploret the use of alternative control methods in video games. In this project, we built a simple shooting gallery and set enemies to spawn randomly at 9 random points. Shooting these enemies gives you a score which is added to a leaderboard.
 
 ## Gestures Identified
 The Myo armband comes with a series of gestures that you can make with your hand. These gestures include:
