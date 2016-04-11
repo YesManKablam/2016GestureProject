@@ -10,14 +10,12 @@ public class Enemy : MonoBehaviour
     //public float deathSpinMin = -100f;
     //public float deathSpinMax = 100f;
 
-    private Transform frontCheck;
     private bool dead = false;
-    //private Score score;
+    private Score score;
 
     void Awake()
     {
-        //frontCheck = transform.Find("frontCheck").transform;
-        //score = GameObject.Find("Score").GetComponent<Score>();
+        score = GameObject.Find("Score").GetComponent<Score>();
     }
 
     void FixedUpdate()
@@ -29,8 +27,10 @@ public class Enemy : MonoBehaviour
             Death();
         }
 
-        Destroy(gameObject, LiveTime);  
+        Destroy(gameObject, LiveTime);
+
     }
+
 
     public void Hurt()
     {
@@ -39,8 +39,8 @@ public class Enemy : MonoBehaviour
 
     void Death()
     {
-        // Increase the score by 100 points
-        //score.score += 100;
+
+        score.score += 100;
 
         // Set dead to true.
         dead = true;
@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
 
         Vector3 scorePos;
         scorePos = transform.position;
-        scorePos.y += 1.5f;
+        scorePos.y += 0.5f;
 
         Instantiate(hundredPointsUI, scorePos, Quaternion.identity);
     }

@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class GameManager : MonoBehaviour
     public Transform player;
     public Transform spawnPoint;
     public float spawnDelay = 2f;
-    public Transform spawnParticle;
+    //public Transform spawnParticle;
     public static bool gameOver = false;
 
     public GUIText GameOverText;
@@ -18,16 +20,21 @@ public class GameManager : MonoBehaviour
     public GUIText MainMenuText;
     public GUIText HighScoreText;
 
-    //private Score score;
+    private Score score;
+
+    public GameObject menuCube;
+    public GameObject restartCube;
+
 
     void Awake()
     {
+        
         if (gm == null)
         {
             gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
         }
 
-        //score = GameObject.Find("Score").GetComponent<Score>();
+        score = GameObject.Find("Score").GetComponent<Score>();
 
         Initialize();
     }
@@ -41,15 +48,21 @@ public class GameManager : MonoBehaviour
             ReplayText.text = "PRESS R TO REPLAY";      //Show GUI Replay
             MainMenuText.text = "PRESS M TO RETURN TO MENU";
 
+            menuCube.SetActive(true);
+            menuCube.GetComponent<Renderer>().enabled = true;
+
+            restartCube.SetActive(true);
+            restartCube.GetComponent<Renderer>().enabled = true;
+
             if (Input.GetKeyDown(KeyCode.R))
             {
-                Application.LoadLevel(Application.loadedLevel);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
 
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                Application.LoadLevel("Main_Menu");
-            }
+            //if (Input.GetKeyDown(KeyCode.M))
+            //{
+               // Application.LoadLevel("Main_Menu");
+            //}
 
         }
     }
@@ -64,11 +77,10 @@ public class GameManager : MonoBehaviour
         MainMenuText.text = "";
     }
 
-
-    /*public static void KillEnemy(EnemyFollow enemy)
+    public static void KillPlayer(Player player)
     {
-        Destroy(enemy.gameObject);
-    }*/
+        Destroy(player.gameObject);
+    }
 
     public static void KillEnemy(Enemy enemy)
     {
